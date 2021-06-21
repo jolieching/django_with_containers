@@ -3,7 +3,7 @@
     {% for greeting in greeting_list %}
         <li>
           {{ greeting.message }}
-          {{ greeting.link }}
+          <a href="{{ greeting.link }}">{{ greeting.link }}</a>
           <span><a href="{% url 'greetings:update' greeting.id %}">edit</a></span>
           <span><a href="{% url 'greetings:delete' greeting.id %}">delete</a></span>
           <span><a href="{% url 'greetings:add' greeting.id %}">add link</a></span>
