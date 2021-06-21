@@ -3,12 +3,15 @@
     {% for greeting in greeting_list %}
         <li>
           {{ greeting.message }}
+          {{ greeting.link }}
           <span><a href="{% url 'greetings:update' greeting.id %}">edit</a></span>
           <span><a href="{% url 'greetings:delete' greeting.id %}">delete</a></span>
-        </li>
+          <span><a href="{% url 'greetings:add' greeting.id %}">add link</a></span>
+      </li>
     {% endfor %}
     </ul>
 {% else %}
+    <img src="https://www.wpbeginner.com/wp-content/uploads/2013/04/wp404error.jpg" alt=="no greetings found">
     <p>No greetings are available.</p>
 {% endif %}
 <a href="{% url 'greetings:create' %}">Create a New Greeting</a>

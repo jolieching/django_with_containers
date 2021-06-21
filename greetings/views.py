@@ -16,6 +16,12 @@ class CreateView(generic.edit.CreateView):
     fields = ['message']
     success_url = reverse_lazy('greetings:index') # more robust than hardcoding to /greetings/; directs user to index view after creating a greeting
 
+class AddLink(generic.edit.UpdateView):
+    template_name = 'greetings/add_link.html'
+    model = Greeting
+    fields = ['link']
+    success_url = reverse_lazy('greetings:index')
+
 class UpdateView(generic.edit.UpdateView):
     template_name = 'greetings/update.html'
     model = Greeting
