@@ -1,0 +1,23 @@
+<!-- Index page! -->
+
+<header>
+    <h1>Post List</h1>
+</header>
+
+<span><a href="{% url 'blog:filtered_by_date' %}">Filtered by published date</a></span>
+<br>
+<span><a href="{% url 'blog:filtered_by_title' %}">Filtered by title</a></span>
+
+{% for post in posts %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <span><a href="{% url 'blog:delete' post.id %}">delete</a></span>
+        <br>
+        <span><a href="{% url 'blog:update' post.id %}">update</a></span>
+    </article>
+    
+{% endfor %}
+
+<hr>
+<a href="{% url 'blog:create' %}">Create a New post</a>

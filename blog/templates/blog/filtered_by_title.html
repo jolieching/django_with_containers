@@ -1,0 +1,16 @@
+<!-- Sorted by title -->
+
+<header>
+    <h1>Sorted by Title</h1>
+</header>
+
+{% for post in posts %}
+    <article>
+        <time>published: {{ post.published_date }}</time>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </article>
+{% endfor %}
+
+<hr>
+<a href="{% url 'blog:index' %}">Home</a>
